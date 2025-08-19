@@ -1,0 +1,15 @@
+[Unit]
+Description=Discord Bot Service
+After=network.target
+
+[Service]
+Type=simple
+User=discordbot
+WorkingDirectory=/opt/server-control-bot
+ExecStart=/opt/server-control-bot/start.sh
+Restart=on-failure
+Environment=NODE_ENV=production
+EnvironmentFile=/opt/server-control-bot/.env
+
+[Install]
+WantedBy=multi-user.target
